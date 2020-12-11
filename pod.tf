@@ -1,6 +1,6 @@
 resource "kubernetes_pod" "pod" {
   metadata {
-    name = "${var.pod_name}"
+    name = var.pod_name
     labels = {
       App = "${var.app_label}"
     }
@@ -8,11 +8,11 @@ resource "kubernetes_pod" "pod" {
 
   spec {
     container {
-      image = "${var.container_image}"
-      name  = "${var.container_name}"
+      image = var.container_image
+      name  = var.container_name
 
       port {
-        container_port = "${var.container_port}"
+        container_port = var.container_port
       }
     }
   }
